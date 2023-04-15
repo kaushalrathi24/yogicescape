@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "massages",
+  "info": {
+    "singularName": "massage",
+    "pluralName": "massages",
+    "displayName": "massage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "time": {
+      "type": "string",
+      "default": "1 hour",
+      "required": true
+    },
+    "price": {
+      "type": "float",
+      "required": true
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "times_booked": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0"
+    },
+    "tag": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
