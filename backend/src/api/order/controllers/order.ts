@@ -6,24 +6,16 @@ import { factories } from "@strapi/strapi";
 import massage from "../../massage/controllers/massage";
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
-const getAmmount = (type, id) => {
+const getAmmount = async (type, id) => {
   switch (type) {
     case "event":
-      const obj1 = strapi.services.event.findOne({ id });
-      console.log(obj1);
-      return 100;
+      return (await strapi.entityService.findOne("api::event.event", id)).Price;
     case "retreat":
-      const obj2 = strapi.services.retreat.findOne({ id });
-      console.log(obj2);
-      return 100;
+      return (await strapi.entityService.findOne("api::retreat.retreat", id)).Price;
     case "massage":
-      const obj3 = strapi.services.massage.findOne({ id });
-      console.log(obj3);
-      return 100;
+      return (await strapi.entityService.findOne("api::massage.massage", id)).price;
     case "therapy":
-      const obj4 = strapi.services.therapy.findOne({ id });
-      console.log(obj4);
-      return 100;
+      return (await strapi.entityService.findOne("api::therapy.therapy", id)).price;
   }
 };
 
@@ -32,9 +24,8 @@ export default factories.createCoreController(
   ({ strapi }) => ({
     async create(ctx) {
       await super.create(ctx);
-      console.log(ctx.request.body);
       const { type, id, attributes } = ctx.request.body;
-      const amount = 100;
+      const amount = await getAmmount(type, id);
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amount * 100,
         currency: "eur",
