@@ -11,16 +11,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "blog": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::blog.blog",
-      "inversedBy": "likes"
-    },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "blog": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog.blog",
+      "inversedBy": "likes"
     }
   }
 }

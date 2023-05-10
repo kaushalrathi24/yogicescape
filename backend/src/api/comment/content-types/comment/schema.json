@@ -16,16 +16,16 @@
       "maxLength": 4000,
       "required": true
     },
-    "blog": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::blog.blog",
-      "inversedBy": "comment"
-    },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "blog": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog.blog",
+      "inversedBy": "comments"
     }
   }
 }
