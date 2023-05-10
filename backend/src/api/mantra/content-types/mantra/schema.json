@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mantras",
+  "info": {
+    "singularName": "mantra",
+    "pluralName": "mantras",
+    "displayName": "Mantra"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "chant": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "meaning": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    }
+  }
+}
