@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "massage_types",
+  "info": {
+    "singularName": "massage-type",
+    "pluralName": "massage-types",
+    "displayName": "MassageType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "time": {
+      "type": "string",
+      "required": true,
+      "default": "1 hour"
+    },
+    "price": {
+      "type": "float",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    }
+  }
+}

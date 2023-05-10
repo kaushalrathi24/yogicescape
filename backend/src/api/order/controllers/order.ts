@@ -3,7 +3,6 @@
  */
 
 import { factories } from "@strapi/strapi";
-import massage from "../../massage/controllers/massage";
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 const getAmmount = async (type, id) => {
@@ -24,7 +23,7 @@ export default factories.createCoreController(
   ({ strapi }) => ({
     async create(ctx) {
       await super.create(ctx);
-      const { type, id, attributes } = ctx.request.body;
+      const { type, id, attributes } = ctx.request.body as any;
       const amount = await getAmmount(type, id);
       const paymentIntent = await stripe.paymentIntents.create({
         amount: amount * 100,

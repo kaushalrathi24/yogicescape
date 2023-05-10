@@ -4,46 +4,20 @@
   "info": {
     "singularName": "massage",
     "pluralName": "massages",
-    "displayName": "massage",
-    "description": ""
+    "displayName": "Massage"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": true
+    "massage_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::massage-type.massage-type"
     },
-    "description": {
-      "type": "text",
-      "required": true
-    },
-    "time": {
-      "type": "string",
-      "default": "1 hour",
-      "required": true
-    },
-    "price": {
-      "type": "float",
-      "required": true
-    },
-    "picture": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "times_booked": {
-      "type": "biginteger",
-      "required": true,
-      "default": "0"
-    },
-    "tag": {
-      "type": "string",
+    "datetime": {
+      "type": "datetime",
       "required": true
     }
   }

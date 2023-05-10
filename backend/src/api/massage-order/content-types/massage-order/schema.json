@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "massage_orders",
+  "info": {
+    "singularName": "massage-order",
+    "pluralName": "massage-orders",
+    "displayName": "MassageOrder"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "massage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::massage.massage"
+    },
+    "paymentComplete": {
+      "type": "boolean",
+      "default": false,
+      "private": true,
+      "required": true
+    },
+    "clientSecret": {
+      "type": "string",
+      "required": true,
+      "private": true
+    }
+  }
+}

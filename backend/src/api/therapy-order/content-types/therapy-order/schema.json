@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "therapy_orders",
+  "info": {
+    "singularName": "therapy-order",
+    "pluralName": "therapy-orders",
+    "displayName": "TherapyOrder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "therapy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::therapy.therapy"
+    },
+    "paymentComplete": {
+      "type": "boolean",
+      "default": false,
+      "required": true,
+      "private": true
+    },
+    "clientSecret": {
+      "type": "string",
+      "unique": false,
+      "required": true,
+      "private": true
+    }
+  }
+}

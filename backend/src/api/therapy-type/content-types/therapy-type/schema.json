@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "therapy_types",
+  "info": {
+    "singularName": "therapy-type",
+    "pluralName": "therapy-types",
+    "displayName": "TherapyType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "time": {
+      "type": "string",
+      "default": "1 hour",
+      "required": true,
+      "unique": true
+    },
+    "price": {
+      "type": "float",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    }
+  }
+}

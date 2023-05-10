@@ -10,14 +10,16 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.7.0",
-    "@strapi/plugin-users-permissions": "4.7.0",
+    "@offset-dev/strapi-calendar": "^0.0.10",
+    "@strapi/plugin-i18n": "4.10.1",
+    "@strapi/plugin-users-permissions": "4.10.1",
     "@strapi/provider-email-mailgun": "^4.7.1",
     "@strapi/provider-email-sendgrid": "^4.7.1",
-    "@strapi/strapi": "4.7.0",
+    "@strapi/strapi": "4.10.1",
     "jsonwebtoken": "^9.0.0",
     "mailgun.js": "^8.2.0",
     "pg": "8.8.0",
+    "strapi-plugin-multi-select": "^1.1.0",
     "stripe": "^12.3.0"
   },
   "author": {
