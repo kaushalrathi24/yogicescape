@@ -14,6 +14,7 @@
     "@offset-dev/strapi-calendar": "^0.0.10",
     "@strapi/plugin-i18n": "4.10.1",
     "@strapi/plugin-users-permissions": "4.10.1",
+    "@strapi/provider-email-amazon-ses": "^4.10.4",
     "@strapi/provider-email-mailgun": "^4.7.1",
     "@strapi/provider-email-sendgrid": "^4.7.1",
     "@strapi/strapi": "4.10.1",
