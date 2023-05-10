@@ -11,7 +11,6 @@ export default factories.createCoreController(
       const user = ctx.state.user;
       const data = ctx.request.body.data;
       data.user = { connect: [user.id] };
-      console.log(data);
       const comment = await strapi.entityService.create(
         "api::comment.comment",
         {
