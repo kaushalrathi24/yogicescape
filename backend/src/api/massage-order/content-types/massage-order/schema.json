@@ -4,7 +4,8 @@
   "info": {
     "singularName": "massage-order",
     "pluralName": "massage-orders",
-    "displayName": "MassageOrder"
+    "displayName": "MassageOrder",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -27,7 +28,7 @@
       "private": true,
       "required": true
     },
-    "clientSecret": {
+    "orderId": {
       "type": "string",
       "required": true,
       "private": true

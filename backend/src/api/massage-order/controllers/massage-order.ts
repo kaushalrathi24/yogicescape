@@ -92,39 +92,68 @@ export default factories.createCoreController(
       //     },
       //   });
       //   const clientSecret = paymentIntent.client_secret;
-      //   const data = {
-      //     user: { connect: [userId] },
-      //     massage: { connect: [id] },
-      //     clientSecret,
-      //   };
-      //   await strapi.entityService.create("api::massage-order.massage-order", {
-      //     data,
-      //   });
+
       //  ctx.send({ clientSecret });
       const json = await response.json();
       console.log("json");
+      const data = {
+        user: { connect: [userId] },
+        massage: { connect: [id] },
+        orderId: json.id,
+      };
       console.log(json);
+      await strapi.entityService.create("api::massage-order.massage-order", {
+        data,
+      });
       ctx.send(json);
     },
 
     async confirm(ctx) {
       const { orderId } = ctx.request.body;
+      const massageOrder = await strapi.entityService.findMany(
+        "api::massage-order.massage-order",
+        {
+          fields: ["id"],
+          filters: { orderId },
+        }
+      );
+      console.log(massageOrder);
+
       const accessToken = await generateAccessToken();
-       const url = `${baseURL.sandbox}/v2/checkout/orders/${orderId}/capture`;
+      const url = `${baseURL.sandbox}/v2/checkout/orders/${orderId}/capture`;
 
-       const response = await fetch(url, {
-         method: "POST",
+      const response = await fetch(url, {
+        method: "POST",
 
-         headers: {
-           "Content-Type": "application/json",
+        headers: {
+          "Content-Type": "application/json",
 
-           Authorization: `Bearer ${accessToken}`,
-         },
-       });
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
 
-       const data = await response.json();
+      const data = await response.json();
+      if (data.status === "COMPLETED") {
+        const massageOrder = await strapi.entityService.findMany(
+          "api::massage-order.massage-order",
+          {
+            fields: ["id"],
+            filters: { orderId },
+          }
+        );
 
-       return data;
-    }
+        await strapi.entityService.update(
+          "api::massage-order.massage-order",
+          massageOrder[0].id,
+          {
+            data: {
+              paymentComplete: true,
+            },
+          }
+        );
+      }
+
+      return data;
+    },
   })
 );
