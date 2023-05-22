@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "giftcards",
+  "info": {
+    "singularName": "giftcard",
+    "pluralName": "giftcards",
+    "displayName": "Giftcard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "balance": {
+      "type": "float",
+      "required": true,
+      "min": 0
+    },
+    "uid": {
+      "type": "uid",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true,
+      "maxLength": 60
+    }
+  }
+}

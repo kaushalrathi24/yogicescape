@@ -4,7 +4,8 @@
   "info": {
     "singularName": "newsletter",
     "pluralName": "newsletters",
-    "displayName": "Newsletter"
+    "displayName": "Newsletter",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +17,13 @@
       "required": true
     },
     "template": {
-      "type": "string"
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

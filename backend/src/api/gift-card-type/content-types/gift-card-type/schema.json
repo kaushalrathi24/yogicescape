@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gift_card_types",
+  "info": {
+    "singularName": "gift-card-type",
+    "pluralName": "gift-card-types",
+    "displayName": "GiftCardTypes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true,
+      "min": "0"
+    }
+  }
+}

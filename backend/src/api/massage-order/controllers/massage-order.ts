@@ -32,11 +32,7 @@ async function handleResponse(response) {
 }
 
 async function generateAccessToken() {
-  console.log(CLIENT_ID);
-  console.log(APP_SECRET);
   const auth = Buffer.from(CLIENT_ID + ":" + APP_SECRET).toString("base64");
-  console.log("auth");
-  console.log(auth);
 
   const response = await fetch(`${baseURL.sandbox}/v1/oauth2/token`, {
     method: "POST",
@@ -110,15 +106,6 @@ export default factories.createCoreController(
 
     async confirm(ctx) {
       const { orderId } = ctx.request.body;
-      const massageOrder = await strapi.entityService.findMany(
-        "api::massage-order.massage-order",
-        {
-          fields: ["id"],
-          filters: { orderId },
-        }
-      );
-      console.log(massageOrder);
-
       const accessToken = await generateAccessToken();
       const url = `${baseURL.sandbox}/v2/checkout/orders/${orderId}/capture`;
 
