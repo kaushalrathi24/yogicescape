@@ -33,6 +33,15 @@
       "type": "text",
       "required": true,
       "maxLength": 60
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
