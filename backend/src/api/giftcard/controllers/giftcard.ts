@@ -38,7 +38,7 @@ export default factories.createCoreController(
     async confirm(ctx) {
       const { orderId } = ctx.request.body;
       const confirmation: Boolean = await confirmOrder(orderId);
-      if (confirmOrder) {
+      if (confirmation) {
         const giftcards = await strapi.entityService.find(
           "api::giftcard.giftcard",
           {
